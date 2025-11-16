@@ -1,0 +1,19 @@
+Câu hỏi: Chuyện gì xảy ra khi thêm phương thức addDVD (DigitalVideoDisc ...discs), tại sao? Bạn lựa chọn phương án nào để giải quyết?
+
+Trả lời:
+
+1. Chuyện gì xảy ra?
+   Khi thêm phương thức addDVD (DigitalVideoDisc ...discs) (sử dụng tính năng 'varargs' của Java), chương trình sẽ báo lỗi biên dịch (Compilation Error) vì nó gây ra sự mơ hồ (ambiguity) với phương thức đã tồn tại là:
+   - addDVD(DigitalVideoDisc[] discs)
+
+2. Tại sao?
+   Trong Java, tính năng 'varargs' (tham số có số lượng thay đổi) thực chất là đường cú pháp (syntactic sugar) cho việc truyền một mảng. Cả hai chữ ký phương thức sau đều có kiểu dữ liệu tham số giống hệt nhau khi được biên dịch:
+   - addDVD(DigitalVideoDisc ...discs)
+   - addDVD(DigitalVideoDisc[] discs)
+   Do đó, compiler không thể phân biệt được nên gọi phương thức nào khi một mảng DigitalVideoDisc được truyền vào, dẫn đến lỗi "Duplicate method" (Phương thức trùng lặp).
+
+3. Phương án giải quyết:
+   Phương án tốt nhất là **chỉ sử dụng một trong hai chữ ký** và loại bỏ chữ ký còn lại.
+   - **Lựa chọn 1:** Giữ lại addDVD(DigitalVideoDisc[] discs).
+   - **Lựa chọn 2 (Được khuyến nghị hơn):** Giữ lại addDVD(DigitalVideoDisc ...discs) và xóa addDVD(DigitalVideoDisc[] discs) đi. Phương thức varargs làm cho việc gọi hàm linh hoạt hơn (có thể truyền 0, 1, 2 đĩa, hoặc một mảng đĩa).
+   (Trong bài tập này, tôi giữ lại addDVD(DigitalVideoDisc[] discs) vì nó đã được yêu cầu viết ở trên).

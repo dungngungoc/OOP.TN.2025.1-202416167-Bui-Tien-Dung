@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Câu 1:Tại sao những đường dẫn trên nên được thêm vào .gitignore (nếu không thêm
 thì sao)?
 + Vì cấu hình Elipse của mỗi người có thể khác nhau nên nếu đẩy các file này lên sẽ làm ghi đè cấu hình và gây ra lỗi
@@ -21,3 +22,28 @@ git rm --cached .project
 git rm -r --cached bin
 +Commit thay đổi này để xác nhận:
 git commit -m "Stop tracking IDE files"
+=======
+Câu 1:Tại sao những đường dẫn trên nên được thêm vào .gitignore (nếu không thêm
+thì sao)?
++ Vì cấu hình Elipse của mỗi người có thể khác nhau nên nếu đẩy các file này lên sẽ làm ghi đè cấu hình và gây ra lỗi
++Thư mục bin chứa các file .class (mã máy Java) được biên dịch ra. Đây là các file "phái sinh" (build artifact) mà code gốc (.java) có thể tạo ra bất cứ lúc nào.
++Mục tiêu của Git là quản lý mã nguồn (.java, file ảnh, file cấu hình chung...), chứ không phải quản lý các file cài đặt riêng của phần mềm (IDE) mà mỗi lập trình viên sử dụng.
+⦁	Câu 2: Nếu dùng IntelliJ IDEA hoặc VSCode, đường dẫn nào sẽ được thêm vào?
+⦁	Với IntelliJ IDEA:
++Thư mục .idea/
++Các file *.iml
++Thư mục out/
+⦁	Với VSCode (Visual Studio Code):
++Thư mục vscode/
+Câu 3: Thao tác khi lỡ commit file tạm lên Git
+Để Git ngừng theo dõi file đã commit mà không xóa file đó khỏi máy, cần thực hiện các thao tác:
++Đảm bảo file đó đã được thêm vào .gitignore.
++Chạy lệnh sau để xóa file khỏi "danh sách theo dõi" của Git:
+# Nếu là file
+git rm --cached .project
+
+# Nếu là thư mục
+git rm -r --cached bin
++Commit thay đổi này để xác nhận:
+git commit -m "Stop tracking IDE files"
+>>>>>>> 1d3a8b151a47658dd96274e992c343a595bb49de

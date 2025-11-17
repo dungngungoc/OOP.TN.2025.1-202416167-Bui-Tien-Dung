@@ -2,3 +2,7 @@
 manifest.mf
 nbbuild.xml
 
+/OtherProject/src/com/hust/kstn/parameters/nbproject/private/
+/OtherProject/nbproject/private/
+/OtherProject/build/
+/OtherProject/dist/

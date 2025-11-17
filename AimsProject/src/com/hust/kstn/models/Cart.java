@@ -113,8 +113,8 @@ public class Cart {
         
         // Duyệt qua mảng các đĩa (chỉ duyệt đến 'qtyOrdered')
         for (int i = 0; i < qtyOrdered; i++) {
-            // Cộng dồn chi phí của từng đĩa
-            totalCost += itemsInCart[i].getCost();
+           
+            totalCost += Double.parseDouble(itemsInCart[i].getCost());
         }
         
         // Trả về tổng chi phí

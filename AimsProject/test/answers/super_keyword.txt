@@ -1,0 +1,6 @@
+Ý nghĩa của từ khóa 'super' là gì?
+
+Trả lời:
+Từ khóa 'super' được sử dụng bên trong một lớp con (subclass) để tham chiếu đến lớp cha (superclass) gần nhất.
+
+Cụ thể, trong ngữ cảnh của hàm khởi tạo (constructor), 'super(arguments);' được dùng để gọi hàm khởi tạo tương ứng của lớp cha. Nó bắt buộc phải là lệnh đầu tiên trong hàm khởi tạo của lớp con để đảm bảo các thuộc tính (fields) mà lớp con kế thừa từ lớp cha được khởi tạo hoàn chỉnh trước khi lớp con thực hiện các khởi tạo riêng của nó.

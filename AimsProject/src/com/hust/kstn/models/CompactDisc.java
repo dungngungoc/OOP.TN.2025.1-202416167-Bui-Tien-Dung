@@ -3,29 +3,17 @@ package com.hust.kstn.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc {
-    private static int nbCompactDiscs = 0;
-    private int id;
-    private String title;
-    private String category;
-    private double cost;
+public class CompactDisc extends Disc {	
     
     private String artist;
-    private String director;
     private List<Track> tracks = new ArrayList<>();
 
     public CompactDisc(String title, String category, double cost, String artist, String director, List<Track> tracks) {
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
+        super(title, cost, category, 0, director);
         this.artist = artist;
-        this.director = director;
         this.tracks = tracks;
-        
-        nbCompactDiscs++;
-        this.id = nbCompactDiscs;
     }
-
+    
     public int totalLength() {
         int total = 0;
         for (Track track : tracks) {
@@ -33,7 +21,8 @@ public class CompactDisc {
         }
         return total;
     }
-    
+
+    // Giữ lại addTrack()
     public void addTrack(Track track) {
         if (!tracks.contains(track)) {
             tracks.add(track);
@@ -43,6 +32,7 @@ public class CompactDisc {
         }
     }
     
+    // Giữ lại removeTrack()
     public void removeTrack(Track track) {
         if (tracks.remove(track)) {
             System.out.println("Track removed: " + track.getTitle());
@@ -50,21 +40,29 @@ public class CompactDisc {
             System.out.println("Track does not exist in the list.");
         }
     }
-    
+
+    // Giữ lại play()
     public void play() {
         if (totalLength() > 0) {
-            System.out.println("Playing CD: " + this.title + ". Total duration: " + totalLength() + " minutes.");
+            System.out.println("Playing CD: " + this.getTitle() + ". Total duration: " + totalLength() + " minutes.");
             for (Track track : tracks) {
+                // Giả định getTitle() được kế thừa từ Media
                 track.play();
             }
         } else {
-            System.out.println("Cannot play CD '" + this.title + "' because total duration is <= 0.");
+            System.out.println("Cannot play CD '" + this.getTitle() + "' because total duration is <= 0.");
         }
     }
-    
+
     @Override
     public String toString() {
-        return "CompactDisc [" + this.id + "][" + this.title + "] [" + this.cost + "] [" + this.category + "]"
-                + "\nArtist: " + this.artist + ". Total Tracks: " + this.tracks.size() + ". Length: " + totalLength() + " mins.";
+        return "CompactDisc " + super.toString() 
+                + "\nArtist: " + this.artist 
+                + ". Total Tracks: " + this.tracks.size() 
+                + ". Length: " + totalLength() + " mins.";
+    }
+
+    private String getTitle() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

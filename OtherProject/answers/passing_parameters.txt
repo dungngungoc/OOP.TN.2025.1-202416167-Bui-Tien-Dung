@@ -1,0 +1,6 @@
+Câu 1:Tại sao sau khi chạy phương thức swap(s1,s2) thì tên của hai học sinh vẫn không
+thay đổi? Từ đó, Java là ngôn ngữ truyền tham trị hay truyền tham chiếu?
+Câu 2: Bạn làm thế nào để phương thức swap hoạt động (thật sự tráo đổi thông tin của hai
+đối tượng được truyền vào)?
+Câu 3: Vẽ sơ đồ minh họa cho các vùng nhớ stack và heap trong trường hợp này để chứng
+minh cách bạn đưa ra đã hoạt động đúng.

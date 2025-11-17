@@ -11,7 +11,7 @@ package com.hust.kstn.models
  */
 public class Cart {
   
-    public static final int MAX_NUMBER_ORDERED = 20;
+    public static final int MAX_NUMBER_ORDERED = 20; 
     
    
     private DigitalVideoDisc itemsInCart[] = new DigitalVideoDisc[MAX_NUMBER_ORDERED];
